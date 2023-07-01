@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title></title>
+<style>
+        #titulo{color: white; background-color: lightgray;}
+        #titulo label{margin-left: 15px;}
+        #menu{border: 1px solid;}
+        #menu label{margin-left: 15px;}
+	#cedula{margin-left:75px;}
+        #usuario{margin-left:17px;}
+        #consulta{text-align: center;}
+        #sectionusuarios{
+            display: grid;
+            grid-template-columns: 50% 50%;
+            margin-top: 100px;
+        }
+        #sectionusuarios div{
+            text-align: center;
+            padding: 30px;
+        }
+        #botones div{
+            text-align: center;
+            margin: 30px;            
+        }
+        #botones div button{margin-left: 30px;}
+    </style>
+    <script type="text/javascript">
+    function comenzar(){
+        var etiquetausuarios=document.getElementById("usuarios");
+        etiquetausuarios.style.backgroundColor="lightgray";
+        var etiquetas=document.getElementsByName("opcion");
+        etiquetas.forEach(function(etiqueta){
+            etiqueta.addEventListener("mouseover",function(){
+            etiqueta.style.backgroundColor="lightgray";},false);
+            etiqueta.addEventListener("mouseleave" ,function(){
+            etiqueta.style.backgroundColor="white";
+            etiquetausuarios.style.backgroundColor="lightgray";
+            },false);           
+        });
+    }
+    window.addEventListener("load", comenzar,false);
+</script>
+</head>
+<body>
+<form action="./UsuariosServlet" method="post">
+<section>
+        <div id="titulo">
+            <label>
+                Tienda Generica
+            </label>
+        </div>
+        <div id="menu">
+            <label name="opcion" id="usuarios">Usuarios</label>
+            <label name="opcion" onclick="location.href='Clientes.html';">
+            Clientes</label>
+            <label name="opcion" onclick="location.href='Proveedores.html';">
+            Proveedores</label>
+            <label name="opcion" onclick="location.href='Productos.html';">
+            Productos</label>
+            <label name="opcion" onclick="location.href='Ventas.html';">
+            Ventas</label>
+            <label name="opcion" onclick="location.href='Reportes.html';">
+            Reportes</label>                         
+        </div>
+    </section>
+    <section id="sectionusuarios">
+        <div>
+            Cedula<input type="text" name="cedula" id="cedula">
+        </div>
+        <div>
+            Usuario <input type="text" name="usuario" id="usuario"> 
+        </div>
+        <div>
+            Nombre Completo <input type="text" name="nombre" id="nombre">
+        </div>
+        <div>
+            Contraseña <input type="password" name="password" id="password">
+        </div>
+        <div>
+            Correo Electronico <input type="email" name="correo" id="correo">
+        </div> 
+    </section>
+    <section id="botones">
+        <div>
+            <button type="submit" name="consultar" id="consultar">Consultar</button>
+            <button type="submit" name="crear" id="crear">Crear</button>
+            <button type="submit" name="actualizar" id="actualizar">Actualizar</button>
+            <button type="submit" name="borrar" id="borrar">Borrar</button>
+        </div>
+        
+    </section>
+    </form>
+</body>
+</html>

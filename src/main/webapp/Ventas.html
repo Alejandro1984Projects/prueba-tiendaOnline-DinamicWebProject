@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title></title>
+<style>
+        #titulo{color: white; background-color: lightgray;}
+        #titulo label{margin-left: 15px;}
+        #menu{border: 1px solid;}
+        #menu label{color: black; margin-left: 15px;}
+        #datospersonas{margin-top:100px;text-align: center;}
+        #datosproductos{margin-top:100px;text-align: center;}
+        #datosproductos label{margin-left:50px;margin-right:50px;}
+        #entradadatosproductos{text-align: center;}
+        #datosventa{text-align:right;margin-top:50px;}
+        #datosventa div{margin-right:275px;}
+    </style>
+    <script>
+        function comenzar(){ 
+        	
+        	var etiquetaventas=document.getElementById("etiquetaventas");
+        	etiquetaventas.style.backgroundColor="lightgray";
+        	var etiquetas=document.getElementsByName("opcion");
+            etiquetas.forEach(function(etiqueta){
+                etiqueta.addEventListener("mouseover",function(){
+                etiqueta.style.backgroundColor="lightgray";},false);
+                etiqueta.addEventListener("mouseleave" ,function(){
+                etiqueta.style.backgroundColor="white";
+                etiquetaventas.style.backgroundColor="lightgray";
+                },false);           
+            });
+        }
+        window.addEventListener("load", comenzar,false);
+    </script>
+</head>
+<body>
+<form action="./VentasServlet" method="post">
+<section>
+        <div id="titulo">
+            <label for="">
+                Tienda Generica
+            </label>
+        </div>
+        <div id="menu">
+            <label name="opcion" onclick="location.href='Usuarios.html';">
+            Usuarios</label>
+            <label name="opcion" onclick="location.href='Clientes.html';">
+            Clientes</label>
+            <label name="opcion" onclick="location.href='Proveedores.html';">
+            Proveedores</label>
+            <label name="opcion" onclick="location.href='Productos.html';">
+            Productos</label>
+            <label name="opcion" id="etiquetaventas">Ventas</label>
+            <label name="opcion" onclick="location.href='Reportes.html';">
+            Reportes</label>                         
+        </div>
+    </section>
+    <section>
+    	<div id="datospersonas">
+      		Cedula Cliente <input type="text" name="cedula" id="cedula">
+        </div>
+    	<div id="datosproductos">
+    	<label>Codigo Producto</label>
+    	<label>Cantidad</label>
+    	</div>
+    	<section id="entradadatosproductos">
+    	<div>
+    	<input type="text" name="codigo1" id="codigo1">
+    	<input type="text" name="cantidad1" id="cantidad1">
+    	</div>
+    	<div>
+    	<input type="text" name="codigo2" id="codigo2">
+    	<input type="text" name="cantidad2" id="cantidad2">
+    	</div>
+    	<div>
+    	<input type="text" name="codigo3" id="codigo3">
+    	<input type="text" name="cantidad3" id="cantidad3">
+    	</div>
+    	</section>
+    	<section id="datosventa">
+    	<div>
+    	<button type="submit" id="confirmar">Confirmar</button>
+    	</div> 
+    	</section>   	
+    </section>
+    </form>
+</body>
+</html>

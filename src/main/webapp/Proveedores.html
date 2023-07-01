@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title></title>
+<style>
+        #titulo{color: white; background-color: lightgray;}
+        #titulo label{margin-left: 15px;}
+        #menu{border: 1px solid;}
+        #menu label{margin-left: 15px;}
+        #nit{margin-left:95px;}
+        #ciudad{margin-left:10px;}
+        #direccion{margin-left: 60px;}
+        #consulta{text-align: center;}        
+        #sectiondatos{
+            display: grid;
+            grid-template-columns: 50% 50%;
+            margin-top: 100px;
+        }
+        #sectiondatos div{
+            text-align: center;
+            padding: 30px;
+        }
+        #botones div{
+            text-align: center;
+            margin: 30px;            
+        }
+        #botones div button{margin-left: 30px;}
+    </style>
+    <script type="text/javascript">
+    function comenzar(){
+    var etiquetaproveedores=document.getElementById("proveedores");
+    etiquetaproveedores.style.backgroundColor="lightgray";
+    var etiquetas=document.getElementsByName("opcion");
+    etiquetas.forEach(function(etiqueta){
+        etiqueta.addEventListener("mouseover",function(){
+        etiqueta.style.backgroundColor="lightgray";},false);
+        etiqueta.addEventListener("mouseleave" ,function(){
+        etiqueta.style.backgroundColor="white";
+        etiquetaproveedores.style.backgroundColor="lightgray";},false);           
+    });
+}
+window.addEventListener("load", comenzar,false);
+    </script>
+</head>
+<body>
+<form action="./ProveedoresServlet" method="post">
+<section>
+        <div id="titulo">
+            <label for="">
+                Tienda Generica
+            </label>
+        </div>
+        <div id="menu">
+            <label name="opcion" onclick="location.href='Usuarios.html';">
+            Usuarios</label>
+            <label name="opcion" onclick="location.href='Clientes.html';">
+            Clientes</label>
+            <label name="opcion" id="proveedores">Proveedores</label>
+            <label name="opcion" onclick="location.href='Productos.html';">
+            Productos</label>
+            <label name="opcion" onclick="location.href='Ventas.html';">
+            Ventas</label>
+            <label name="opcion" onclick="location.href='Reportes.html';">
+            Reportes</label>                         
+        </div>
+    </section>
+    <section id="sectiondatos">
+        <div>
+            NIT<input type="text" name="nit" id="nit">
+        </div>
+        <div>
+            Telefono <input type="text" name="telefono" id="telefono"> 
+        </div>
+        <div>
+            Nombre Proveedor <input type="text" name="nombre" id="nombre">
+        </div>
+        <div>
+            Ciudad <input type="text" name="ciudad" id="ciudad">
+        </div>
+        <div>
+            Direccion <input type="text" name="direccion" id="direccion">
+        </div> 
+    </section>
+    <section id="botones">
+        <div>
+            <button type="submit" name="consultar" id="consultar">Consultar</button>
+            <button type="submit" name="crear" id="crear">Crear</button>
+            <button type="submit" name="actualizar" id="actualizar">Actualizar</button>
+            <button type="submit" name="borrar" id="borrar">Borrar</button>
+        </div>
+        
+    </section>
+</form>
+</body>
+</html>

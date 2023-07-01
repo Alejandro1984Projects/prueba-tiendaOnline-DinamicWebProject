@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title></title>
+<style>
+        #titulo{color: white; background-color: lightgray;}
+        #titulo label{margin-left: 15px;}
+        #menu{border: 1px solid;}
+        #menu label{color: black; margin-left: 15px;}
+    </style>
+    <script>
+        function comenzar(){
+        	var etiquetas=document.getElementsByName("opcion");
+            etiquetas.forEach(function(etiqueta){
+                etiqueta.addEventListener("mouseover",function(){
+                etiqueta.style.backgroundColor="lightgray";},false);
+                etiqueta.addEventListener("mouseleave" ,function(){
+                etiqueta.style.backgroundColor="white";},false);           
+            });
+        }
+        window.addEventListener("load", comenzar,false);
+    </script>
+</head>
+<body>
+<section>
+        <div id="titulo">
+            <label for="">
+                Tienda Generica
+            </label>
+        </div>
+        <div id="menu">
+            <label name="opcion" onclick="location.href='Usuarios.html';">
+            Usuarios</label>
+            <label name="opcion" onclick="location.href='Clientes.html';">
+            Clientes</label>
+            <label name="opcion" onclick="location.href='Proveedores.html';">
+            Proveedores</label>
+            <label name="opcion" onclick="location.href='Productos.html';">
+            Productos</label>
+            <label name="opcion" onclick="location.href='Ventas.html';">
+            Ventas</label>
+            <label name="opcion" onclick="location.href='Reportes.html';">
+            Reportes</label>                         
+        </div>
+    </section>
+</body>
+</html>
